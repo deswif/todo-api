@@ -1,0 +1,45 @@
+### GET request to example server
+GET http://localhost:8080/health
+
+### POST login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "max.steshkin@gmail.com",
+  "password": "123456"
+}
+
+### POST register
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "email": "max.steshkin@gmail.com",
+  "password": "123456"
+}
+
+### GET me
+GET http://localhost:8080/api/v1/user/me
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzQ4Mzk1NDgsImlhdCI6MTczNDc1MzE0OCwiaWQiOjExfQ.jWDGEAF3StHMD6qOthhbdOwCtYGcum5t_VXp_GKLfXM
+
+### GET all todos
+GET http://localhost:8080/api/v1/todo
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzQ4Mzk1NDgsImlhdCI6MTczNDc1MzE0OCwiaWQiOjExfQ.jWDGEAF3StHMD6qOthhbdOwCtYGcum5t_VXp_GKLfXM
+
+### POST new todo
+POST http://localhost:8080/api/v1/todo
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzQ4Mzk1NDgsImlhdCI6MTczNDc1MzE0OCwiaWQiOjExfQ.jWDGEAF3StHMD6qOthhbdOwCtYGcum5t_VXp_GKLfXM
+Content-Type: application/json
+
+{
+  "title": "Do some other thing"
+}
+
+### PATCH complete todo
+PATCH http://localhost:8080/api/v1/todo/2/complete
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzQ4Mzk1NDgsImlhdCI6MTczNDc1MzE0OCwiaWQiOjExfQ.jWDGEAF3StHMD6qOthhbdOwCtYGcum5t_VXp_GKLfXM
+
+### GET todo
+GET http://localhost:8080/api/v1/todo/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzQ4Mzk1NDgsImlhdCI6MTczNDc1MzE0OCwiaWQiOjExfQ.jWDGEAF3StHMD6qOthhbdOwCtYGcum5t_VXp_GKLfXM

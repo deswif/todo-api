@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  core-api:
+    container_name: todo-api
+    image: todo-api
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+      - DATABASE_URL=postgres://admin:123456@todo-api-db:5432/todo
+    networks:
+      - todo
+    depends_on:
+      - core-db
+
+  core-db:
+    image: postgres:15.0
+    container_name: todo-api-db
+    hostname: todo-api-db
+    restart: always
+    environment:
+      - POSTGRES_DB=todo
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - todo-api-db-data:/var/lib/postgresql/data
+    networks:
+      - todo
+    ports:
+      - "5432:5432"
+
+volumes:
+  todo-api-db-data:
+
+networks:
+  todo:
